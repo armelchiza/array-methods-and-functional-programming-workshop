@@ -10,6 +10,8 @@ function forEach(callback, theArray) {
   */
 }
 
+// COMMENT
+
 function map(mappingFunction, theArray) {
 
 }
