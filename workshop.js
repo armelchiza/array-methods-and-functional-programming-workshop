@@ -97,16 +97,16 @@ function last(n, theArray) {
 }
 
 function pluck(property, arrayOfObjects) { // working on this
-  theArray = [];
+  var myArray = [];
   
-  forEach(function(){
-    theArray.push();
+  forEach(function(amongObjects){
+    myArray.push(amongObjects.property)
   }, arrayOfObjects)
   
-  forEach(theArray.push(this.property), arrayOfObjects);
-  return(theArray);
-  
+  return(myArray); // length of arrayOfObjects is undefined in forEach, which I use here. ???
 }
+
+
 console.log(pluck('id'), {id: "pet"});
 
 function flatten(theArray) {
