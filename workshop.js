@@ -96,7 +96,7 @@ function last(n, theArray) {
   return(newArray);
 }
 
-function pluck(property, arrayOfObjects) { // working on this
+function pluck_ISH (property, arrayOfObjects) { // working on this
   
   var newArray  = forEach(function(object){
     var myArray = [];
@@ -107,11 +107,23 @@ function pluck(property, arrayOfObjects) { // working on this
   return(newArray); // length of arrayOfObjects is undefined in forEach, which I use here. ???
 }
 
-
-console.log(pluck('id'), {id: "pet"});
+function pluck(property, arrayOfObjects) {
+  var newArray = []; // declare an empty array
+  for (var i = 0; i < arrayOfObjects.length; i++) { // loop through the entire array
+    newArray.push(arrayOfObjects[i][property]); // push the property value to the new array
+  } return newArray;
+}
 
 function flatten(theArray) {
-
+  var flatArray = [] 
+  forEach(function(object) { 
+    if (Array.isArray(object)) {
+      flatArray = flatArray.concat(flatten(object))
+    } else {
+      flatArray.push(object);
+    }
+  }, theArray);
+  return flatArray;
 }
 
 function negate1(predicate) {
