@@ -97,13 +97,14 @@ function last(n, theArray) {
 }
 
 function pluck(property, arrayOfObjects) { // working on this
-  var myArray = [];
   
-  forEach(function(amongObjects){
-    myArray.push(amongObjects.property)
+  var newArray  = forEach(function(object){
+    var myArray = [];
+    myArray.push(object.property);
+    return myArray;
   }, arrayOfObjects)
   
-  return(myArray); // length of arrayOfObjects is undefined in forEach, which I use here. ???
+  return(newArray); // length of arrayOfObjects is undefined in forEach, which I use here. ???
 }
 
 
